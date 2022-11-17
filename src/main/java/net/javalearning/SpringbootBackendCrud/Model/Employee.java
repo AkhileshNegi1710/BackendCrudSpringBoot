@@ -1,4 +1,4 @@
-package net.javalearning.SpringbootBackendCrud.Model;
+package net.javalearning.SpringbootBackendCrud.Entity;
 
 import lombok.*;
 
@@ -29,6 +29,15 @@ public class Employee {
 
     @Column(name="email_id")
     private String emailId;
+
+
+//    Non Primitive data type ExpertinWork [class] and its object is expertinWork
+//@OneToOne[Empoyee will have only one ExpertinWork] it is unidirectional mapping bcoz we have define expertinwork inside Employee class only but not define employee inside expertinwork class
+//    so when we have object of Employee we can call expertinWork but if we have object of ExpertinWork , we cannot call Employee.
+//    CascadeType.ALL saving whole expertinWork class along with Employee class.
+//    cascade means related operation will be performed.
+    @OneToOne(cascade = CascadeType.ALL)
+    private ExpertinWork expertinWork;
 
 
 
